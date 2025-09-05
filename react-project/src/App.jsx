@@ -1,6 +1,6 @@
 import "./App.css";
 import { CORE_CONCEPTS } from  './data.js'; // named exports are imported with curly braces
-import Header from "./components/Header.jsx";
+import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcepts.jsx";
 
 function App() {
