@@ -13,12 +13,23 @@ function App() {
   // Destructuring stateArray using vanilla JS
   const [selectedTopic, setSelectedTopic] = useState();
 
-  let tabContent = 'Please click a button';
-
   function handleClick(selectedButton) {
     // tabContent = selectedButton;
     setSelectedTopic(selectedButton);
     // console.log(selectedTopic);
+  }
+
+  let tabContent =  <p>Please select a topic.</p>;
+  if (selectedTopic) {
+    tabContent = <div id="tab-content">
+      <h3>{EXAMPLES[selectedTopic].title}</h3>
+      <p>{EXAMPLES[selectedTopic].description}</p>
+      <pre>
+        <code>
+          {EXAMPLES[selectedTopic].code}
+        </code>
+      </pre>
+    </div>
   }
 
   return (
@@ -47,20 +58,7 @@ function App() {
             <TabButton onSelect={() => handleClick('props')}>Props</TabButton>
             <TabButton onSelect={() => handleClick('state')}>State</TabButton>
           </menu>
-          {!selectedTopic && (
-            <p>Please select a topic.</p>
-          )}
-          {selectedTopic && (
-            <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-              <code>
-                {EXAMPLES[selectedTopic].code}
-              </code>
-              </pre>
-            </div>
-          )}
+           {tabContent}
         </section>
       </main>
     </div>
