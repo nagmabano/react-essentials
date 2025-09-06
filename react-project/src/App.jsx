@@ -11,7 +11,7 @@ function App() {
 
   // const stateArray = useState("Please click a button!"); // stateArray is a array of exactly 2 elements
   // Destructuring stateArray using vanilla JS
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState();
 
   let tabContent = 'Please click a button';
 
@@ -47,15 +47,19 @@ function App() {
             <TabButton onSelect={() => handleClick('props')}>Props</TabButton>
             <TabButton onSelect={() => handleClick('state')}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
+          {!selectedTopic ? (
+            <p>Please select a topic.</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
               <code>
                 {EXAMPLES[selectedTopic].code}
               </code>
-            </pre>
-          </div>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>
