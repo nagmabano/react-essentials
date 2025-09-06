@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 import { CORE_CONCEPTS } from "./data.js"; // named exports are imported with curly braces
 import Header from "./components/Header/Header.jsx";
@@ -6,11 +8,16 @@ import TabButton from "./components/TabButton.jsx";
 
 function App() {
 
+  // const stateArray = useState("Please click a button!"); // stateArray is a array of exactly 2 elements
+  // Destructuring stateArray using vanilla JS
+  const [selectedTopic, setSelectedTopic] = useState("Please click a button!");
+
   let tabContent = 'Please click a button';
 
   function handleClick(selectedButton) {
-    tabContent = selectedButton;
-    console.log(tabContent);
+    // tabContent = selectedButton;
+    setSelectedTopic(selectedButton);
+    // console.log(selectedTopic);
   }
 
   return (
@@ -39,7 +46,7 @@ function App() {
             <TabButton onSelect={() => handleClick('props')}>Props</TabButton>
             <TabButton onSelect={() => handleClick('state')}>State</TabButton>
           </menu>
-            {tabContent}
+            {selectedTopic}
         </section>
       </main>
     </div>
