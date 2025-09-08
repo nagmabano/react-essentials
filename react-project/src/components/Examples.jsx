@@ -31,7 +31,7 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
-        ButtonsContainer="menu" // sending identifier as a value for prop, notice capital letter for name, can be ButtonsContainer={ Section }
+        // ButtonsContainer="menu" // sending identifier as a value for prop, notice capital letter for name, can be ButtonsContainer={ Section }
         buttons={
           <>
             <TabButton
