@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 
 import "./App.css";
 import { CORE_CONCEPTS } from "./data.js"; // named exports are imported with curly braces
@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <Fragment>
+    <>
       <Header></Header>
       <main>
         <section id="core-concepts">
@@ -53,7 +53,7 @@ function App() {
            {tabContent}
         </section>
       </main>
-    </Fragment>
+    </>
   );
 }
 
